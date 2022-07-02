@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
-  //State
+  // State
   const [notes, setNotes] = useState(null);
   const [createForm, setCreateForm] = useState({
+    title: "",
+    body: "",
+  });
+  const [updateForm, setUpdateForm] = useState({
+    _id: null,
     title: "",
     body: "",
   });
@@ -53,6 +58,38 @@ function App() {
     setNotes(newNotes);
   };
 
+  const handleUpdateFieldChange = (e) => {
+    const { value, name } = e.target;
+
+    setUpdateForm({
+      ...updateForm,
+      [name]: value,
+    });
+  };
+
+  const toggleUpdate = (note) => {
+    // Set state on update form
+    setUpdateForm({ title: note.title, body: note.body, _id: note._id });
+  };
+
+  const updateNote = async (e) => {
+
+    e.preventDefault();
+
+    const { title, body } = updateForm;
+    // Send the update request
+   const res = await axios.put(`http://localhost:3000/notes/${updateForm._id}`, {title, body});
+  
+    // Update State
+    const newNotes = [...notes];
+    const noteIndex = notes.findIndex(note => {
+      return note._id === updateForm._id;
+    });
+    newNotes[noteIndex] = res.data.note;
+
+    setNotes(newNotes);
+  }
+
   return (
     <div className="App">
       <div>
@@ -66,20 +103,30 @@ function App() {
                 <button onClick={() => deleteNote(note._id)}>
                   Delete Note
                 </button>
+                <button onClick={() => toggleUpdate(note)}> Update Note</button>
               </div>
             );
           })}
       </div>
-
-      <div>
-        <h2>Update Note</h2>
-        <form>
-          <input name="title"/>
-          <textarea name="body"/>
-          <button type="submit">Update</button>
-        </form>
-      </div>
-
+      {updateForm._id && (
+        <div>
+          <h2>Update Note</h2>
+          <form onSubmit={updateNote}>
+            <input
+              onChange={handleUpdateFieldChange}
+              value={updateForm.title}
+              name="title"
+            />
+            <textarea
+              onChange={handleUpdateFieldChange}
+              value={updateForm.body}
+              name="body"
+            />
+            <button type="submit">Update</button>
+          </form>
+        </div>
+      )}
+  {!updateForm._id &&  
       <div>
         <h2> Create Note</h2>
         <form onSubmit={createNote}>
@@ -95,9 +142,7 @@ function App() {
           />
           <button onClick={deleteNote}>Create note</button>
         </form>
-      </div>
-
-
+      </div>}
     </div>
   );
 }
