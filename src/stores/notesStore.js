@@ -4,12 +4,12 @@ import axios from "axios";
 const notesStore = create((set) => ({
   notes: null,
 
-  createForm: {
+  CreateForm: {
     title: "",
     body: "",
   },
 
-  updateForm: {
+  UpdateForm: {
     _id: null,
     title: "",
     body: "",
@@ -27,8 +27,8 @@ const notesStore = create((set) => ({
 
     set((state) => {
       return {
-        createForm: {
-          ...state.createForm,
+        CreateForm: {
+          ...state.CreateForm,
           [name]: value,
         },
       };
@@ -38,13 +38,13 @@ const notesStore = create((set) => ({
   createNote: async (e) => {
     e.preventDefault();
 
-    const { createForm, notes } = notesStore.getState();
-    const res = await axios.post("https://mjs-server.herokuapp.com/notes", createForm);
+    const { CreateForm, notes } = notesStore.getState();
+    const res = await axios.post("https://mjs-server.herokuapp.com/notes", CreateForm);
 
     //update State
     set({
       notes: [...notes, res.data.note],
-      createForm: {
+      CreateForm: {
         title: "",
         body: "",
       },
@@ -67,8 +67,8 @@ const notesStore = create((set) => ({
 
     set((state) => {
       return {
-        updateForm: {
-          ...state.updateForm,
+        UpdateForm: {
+          ...state.UpdateForm,
           [name]: value,
         },
       };
@@ -77,7 +77,7 @@ const notesStore = create((set) => ({
 
   toggleUpdate: ({ _id, title, body }) => {
     set({
-      updateForm: {
+      UpdateForm: {
         title,
         body,
         _id,
@@ -88,7 +88,7 @@ const notesStore = create((set) => ({
   updateNote: async (e) => {
     e.preventDefault();
 
-    const { updateForm: {title, body, _id },
+    const { UpdateForm: {title, body, _id },
     notes,
      } = notesStore.getState();
 
@@ -108,7 +108,7 @@ const notesStore = create((set) => ({
 
     set({
         notes: newNotes,
-        updateForm: {
+        UpdateForm: {
             _id: null,
             title: "",
             body: "",
