@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import notesStore  from "../stores/notesStore";
 
 function App() {
+  const store = notesStore();
+
   // State
   const [notes, setNotes] = useState(null);
   const [createForm, setCreateForm] = useState({
@@ -16,13 +19,13 @@ function App() {
 
   //Use Effect
   useEffect(() => {
-    fetchNotes();
+    store.fetchNotes();
   }, []);
 
   //Functions
   const fetchNotes = async () => {
     //Fetch the notes
-    const res = await axios.get("http://localhost:3000/notes");
+    const res = await axios.get("https://mjs-server.herokuapp.com/notes");
     // Set to state
     setNotes(res.data.notes);
   };
@@ -39,7 +42,7 @@ function App() {
   const createNote = async (e) => {
     e.preventDefault();
     //Create the note
-    const res = await axios.post("http://localhost:3000/notes", createForm);
+    const res = await axios.post("https://mjs-server.herokuapp.com/notes", createForm);
 
     //update State
     setNotes([...notes, res.data.note]);
@@ -50,7 +53,7 @@ function App() {
 
   const deleteNote = async (_id) => {
     //delete Note
-    const res = await axios.delete(`http://localhost:3000/notes/${_id}`);
+    const res = await axios.delete(`https://mjs-server.herokuapp.com/notes/${_id}`);
     //update state
     const newNotes = [...notes].filter((note) => {
       return note._id !== _id;
@@ -78,7 +81,7 @@ function App() {
 
     const { title, body } = updateForm;
     // Send the update request
-   const res = await axios.put(`http://localhost:3000/notes/${updateForm._id}`, {title, body});
+   const res = await axios.put(`https://mjs-server.herokuapp.com/notes/${updateForm._id}`, {title, body});
   
     // Update State
     const newNotes = [...notes];
@@ -88,59 +91,69 @@ function App() {
     newNotes[noteIndex] = res.data.note;
 
     setNotes(newNotes);
-  }
+
+    //Clear update form state
+    setUpdateForm({
+      _id: null,
+      title: "",
+      body: "",
+    })
+
+  };
 
   return (
     <div className="App">
       <div>
         <h1>Notes:</h1>
-        {notes &&
-          notes.map((note) => {
+        {store.notes &&
+          store.notes.map((note) => {
             return (
               <div key={note._id}>
                 <h2>{note.title}</h2>
                 <h3>{note.body}</h3>
-                <button onClick={() => deleteNote(note._id)}>
+                <button onClick={() => store.deleteNote(note._id)}>
                   Delete Note
                 </button>
-                <button onClick={() => toggleUpdate(note)}> Update Note</button>
+                <button onClick={() => store.toggleUpdate(note)}> Update Note</button>
               </div>
             );
           })}
       </div>
-      {updateForm._id && (
+
+
+      {store.updateForm._id && (
         <div>
           <h2>Update Note</h2>
-          <form onSubmit={updateNote}>
+          <form onSubmit={store.updateNote}>
             <input
-              onChange={handleUpdateFieldChange}
-              value={updateForm.title}
+              onChange={store.handleUpdateFieldChange}
+              value={store.updateForm.title}
               name="title"
             />
             <textarea
-              onChange={handleUpdateFieldChange}
-              value={updateForm.body}
+              onChange={store.handleUpdateFieldChange}
+              value={store.updateForm.body}
               name="body"
             />
             <button type="submit">Update</button>
           </form>
         </div>
       )}
-  {!updateForm._id &&  
+  {!store.updateForm._id &&  
       <div>
         <h2> Create Note</h2>
-        <form onSubmit={createNote}>
+        <form onSubmit={store.createNote}>
           <input
-            onChange={updateCreateFormField}
-            value={createForm.title}
+            onChange={store.updateCreateFormField}
+            value={store.createForm.title}
             name="title"
           />
           <textarea
-            onChange={updateCreateFormField}
-            value={createForm.body}
+            onChange={store.updateCreateFormField}
+            value={store.createForm.body}
             name="body"
           />
-          <button onClick={deleteNote}>Create note</button>
+          <button onClick={store.createNote}>Create note</button>
         </form>
       </div>}
     </div>
