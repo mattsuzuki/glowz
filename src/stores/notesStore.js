@@ -17,7 +17,7 @@ const notesStore = create((set) => ({
 
   fetchNotes: async () => {
     //Fetch the notes
-    const res = await axios.get("https://mjs-server.herokuapp.com/notes");
+    const res = await axios.get("/notes");
     // Set to state
     set({ notes: res.data.notes });
   },
@@ -39,7 +39,7 @@ const notesStore = create((set) => ({
     e.preventDefault();
 
     const { CreateForm, notes } = notesStore.getState();
-    const res = await axios.post("https://mjs-server.herokuapp.com/notes", CreateForm);
+    const res = await axios.post("/notes", CreateForm);
 
     //update State
     set({
@@ -53,7 +53,7 @@ const notesStore = create((set) => ({
 
   deleteNote: async (_id) => {
     //delete Note
-    const res = await axios.delete(`https://mjs-server.herokuapp.com/notes/${_id}`);
+    await axios.delete(`/notes/${_id}`);
     const { notes } = notesStore.getState();
     //update state
     const newNotes = notes.filter((note) => {
@@ -88,15 +88,15 @@ const notesStore = create((set) => ({
   updateNote: async (e) => {
     e.preventDefault();
 
-    const { UpdateForm: {title, body, _id },
-    notes,
-     } = notesStore.getState();
+    const {
+      UpdateForm: { title, body, _id },
+      notes,
+    } = notesStore.getState();
 
     // Send the update request
-    const res = await axios.put(
-      `https://mjs-server.herokuapp.com/notes/${_id}`, {
-         title, 
-         body,
+    const res = await axios.put(`/notes/${_id}`, {
+      title,
+      body,
     });
 
     // Update State
@@ -107,12 +107,12 @@ const notesStore = create((set) => ({
     newNotes[noteIndex] = res.data.note;
 
     set({
-        notes: newNotes,
-        UpdateForm: {
-            _id: null,
-            title: "",
-            body: "",
-        },
+      notes: newNotes,
+      UpdateForm: {
+        _id: null,
+        title: "",
+        body: "",
+      },
     });
   },
 }));

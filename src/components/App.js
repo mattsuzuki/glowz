@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import notesStore from "../stores/notesStore";
 import Notes from "../components/Notes";
 import UpdateForm from "../components/UpdateForm";
 import CreateForm from "../components/CreateForm";
-
+import "./App.css";
 
 function App() {
   const store = notesStore();
@@ -17,8 +16,8 @@ function App() {
   return (
     <div className="App">
       <Notes />
-      <UpdateForm/>
-      <CreateForm/>
+      <UpdateForm />
+      <CreateForm />
     </div>
   );
 }
