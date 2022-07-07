@@ -42,12 +42,14 @@ const authStore = create((set) => ({
 
   login: async () => {
     const { loginForm } = authStore.getState();
+    console.log("1");
     await axios.post("/login", loginForm, {
       withCredentials: true,
     });
+    console.log("2");
 
     set({
-      loggidIn: true,
+      loggedIn: true,
       loginForm: {
         email: "",
         password: "",
@@ -57,7 +59,7 @@ const authStore = create((set) => ({
 
   checkAuth: async () => {
     try {
-      await axios.get("/check-auth", { withCredentials: true });
+      await axios.get("/check-auth");
       set({ loggedIn: true });
     } catch {
       set({ loggedIn: false });
@@ -67,7 +69,7 @@ const authStore = create((set) => ({
   signup: async () => {
     const { signupForm } = authStore.getState();
 
-    await axios.post("/signup", signupForm, { withCredentials: true });
+    await axios.post("/signup", signupForm);
 
     set({
       signupForm: {
@@ -75,6 +77,11 @@ const authStore = create((set) => ({
         password: "",
       },
     });
+  },
+
+  logout: async () => {
+    await axios.get("/logout");
+    set({ loggedIn: false });
   },
 }));
 

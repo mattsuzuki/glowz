@@ -8,8 +8,9 @@ export default function LoginForm() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+    console.log("3");
     await store.login();
+    console.log("4");
 
     // Navigate
     navigate("/");
