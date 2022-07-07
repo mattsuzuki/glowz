@@ -1,23 +1,32 @@
-import { useEffect } from "react";
-import notesStore from "../stores/notesStore";
-import Notes from "../components/Notes";
-import UpdateForm from "../components/UpdateForm";
-import CreateForm from "../components/CreateForm";
-import "./App.css";
+import NotesPage from "../pages/NotesPage";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import LoginPage from "../pages/LoginPage";
+import RequireAuth from "./RequireAuth";
 
 function App() {
-  const store = notesStore();
-
-  //Use Effect
-  useEffect(() => {
-    store.fetchNotes();
-  }, []);
-
   return (
     <div className="App">
-      <Notes />
-      <UpdateForm />
-      <CreateForm />
+      <BrowserRouter>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/login">LOGIN</Link>
+          </li>
+        </ul>
+        <Routes>
+          <Route
+            index
+            element={
+              <RequireAuth>
+                <NotesPage />
+              </RequireAuth>
+            }
+          />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
