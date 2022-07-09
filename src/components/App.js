@@ -10,12 +10,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ul>
+        <ul className="nav-bar">
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/login">LOGIN</Link>
+            <Link to="/login">Login</Link>
           </li>
           <li>
             <Link to="/signup">Signup</Link>

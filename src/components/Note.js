@@ -4,12 +4,12 @@ export default function Note({ note }) {
   const store = notesStore((store) => {
     return {
       deleteNote: store.deleteNote,
-      toggleUpdate: store.toggleUpdate
+      toggleUpdate: store.toggleUpdate,
     };
   });
 
   return (
-    <div key={note._id}>
+    <div className="note-section" key={note._id}>
       <h2>{note.title}</h2>
       <h3>{note.body}</h3>
       <button onClick={() => store.deleteNote(note._id)}>Delete Note</button>

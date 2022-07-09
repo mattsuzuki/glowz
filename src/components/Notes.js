@@ -6,7 +6,7 @@ export default function Notes() {
 
   return (
     <div>
-      <h1>Notes:</h1>
+      <h1 className="notes-header">Notes:</h1>
       {store.notes &&
         store.notes.map((note) => {
           return <Note note={note} key={note._id} />;
