@@ -18,12 +18,14 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleLogin}>
+      <p>Please enter your email</p>
       <input
         onChange={store.updateLoginForm}
         value={store.loginForm.email}
         type="email"
         name="email"
       />
+      <p>Please enter your password</p>
       <input
         onChange={store.updateLoginForm}
         value={store.loginForm.password}

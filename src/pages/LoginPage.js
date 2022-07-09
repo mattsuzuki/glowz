@@ -1,9 +1,10 @@
 import LoginForm from "../components/LoginForm";
+import SignupForm from "../components/SignupForm";
 
 export default function LoginPage() {
   return (
-    <div>
-      <h1 className="text-xl font-bold"> Login</h1>
+    <div className="login-page">
+      <h1> Login</h1>
       <LoginForm />
     </div>
   );

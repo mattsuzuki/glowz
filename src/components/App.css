@@ -1,12 +1,39 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
 * {
   font-family: "Indie Flower", cursive;
   font-family: "Poiret One", cursive;
   background-color: #1e1d2a;
 }
 
+input,
+select,
+button,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="search"] {
+  display: block;
+  width: 100%;
+}
+
+a,
+button,
+label,
+input[type="submit"],
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+}
 .App li {
   display: flex;
   list-style: none;
@@ -19,32 +46,68 @@ li a {
 
 .nav-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+
   padding: 20px;
   align-items: center;
+}
+h1,
+p {
+  color: white;
 }
 
 .nav-bar a {
   color: #f0eff0;
+  margin-right: 20px;
   font-weight: bolder;
   text-shadow: 2px 2px 2px black;
 }
+.nav-bar a:hover {
+  color: #514f5d;
+}
+/* Login page */
+
+.login-page {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.login-page h1 {
+  text-align: center;
+  padding-bottom: 40px;
+  font-size: 60px;
+}
+
+.login-page input {
+  margin: 10px auto;
+  background-color: white;
+  line-height: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.login-page button {
+  padding: 20px 150px;
+  text-align: center;
+}
+
 /* Notes */
 .note-section {
   color: #f0eff0;
   padding-left: 30px;
   margin-bottom: 20px;
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: #252636;
 }
 
 .notes-section,
 h2,
 h3 {
+  padding-top: 20px;
   max-width: 600px;
   background-color: #252636;
-  color: black;
-  text-shadow: 1px 1px 1px white;
+  color: white;
+  border-radius: 20px;
 }
 
 .notes-header {
@@ -56,14 +119,16 @@ h3 {
 button {
   margin-right: 10px;
   margin-left: auto;
-  margin-bottom: 5px;
-  background-color: white;
-  border: 2px solid #e35cff;
+  margin-bottom: 10px;
+  background-color: #6f6fc8;
+  border: 2px solid #6f6fc8;
+  color: white;
   border-radius: 20px;
+  padding: 10px;
 }
 
 .note-section button:hover {
-  background-color: grey;
+  background-color: #6f6fc8af;
 }
 /* Create Note Form */
 .create-note {
@@ -71,6 +136,7 @@ button {
   color: #f0eff0;
   text-shadow: 2px 2px 2px black;
   background-color: #333242;
+  border-radius: 20px;
 }
 
 .note-form {
@@ -101,10 +167,41 @@ textarea {
   display: flex;
   align-content: center;
   color: black;
+  max-width: 300px;
 }
 
-@media (min-width: 800px) {
-  * {
-    background-color: #fff;
-  }
+/* Signup Form  */
+
+.signup-form {
+  padding: 25px;
 }
+
+.signup-form input {
+  margin: 0 auto;
+}
+.signup-form h1 {
+  text-align: center;
+  padding-bottom: 35px;
+}
+
+.signup-form button {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* Update Note Heading */
+
+.update-note {
+  background-color: #1e1d2a;
+}
+
+.up-input {
+  background-color: white;
+  line-height: 60px;
+  border-radius: 10px;
+}
+
+/* @media (min-width: 800px) {
+  * {
+  }
+} */
