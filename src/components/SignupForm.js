@@ -13,14 +13,14 @@ export default function SignupForm() {
 
   return (
     <form onSubmit={handleSignup}>
-      <p>Email</p>
+      <p>Please Enter Your Email</p>
       <input
         onChange={store.updateSignupForm}
         value={store.signupForm.email}
         type="email"
         name="email"
       />
-      <p>Password</p>
+      <p>Please Enter a Password</p>
       <input
         onChange={store.updateSignupForm}
         value={store.signupForm.password}

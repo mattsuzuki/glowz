@@ -4,7 +4,7 @@ import LoginPage from "../pages/LoginPage";
 import RequireAuth from "./RequireAuth";
 import SignupPage from "../pages/SignupPage";
 import LogoutPage from "../pages/LogoutPage";
-import "./App.css";
+import "../styles/App.css";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
             <Link to="/logout">Logout</Link>
           </li>
         </ul>
+
         <Routes>
           <Route
             index
@@ -33,6 +34,7 @@ function App() {
               </RequireAuth>
             }
           />
+
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/logout" element={<LogoutPage />} />

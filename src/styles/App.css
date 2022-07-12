@@ -43,14 +43,19 @@ li a {
   text-decoration: none;
   display: flex;
 }
+/* Landing Page  */
+
+.landing {
+  text-align: center;
+}
 
 .nav-bar {
   display: flex;
   justify-content: flex-end;
-
   padding: 20px;
   align-items: center;
 }
+
 h1,
 p {
   color: white;
@@ -95,6 +100,7 @@ p {
 .note-section {
   color: #f0eff0;
   padding-left: 30px;
+  padding-right: 30px;
   margin-bottom: 20px;
   border-radius: 20px;
   background-color: #252636;
@@ -136,7 +142,28 @@ button {
   color: #f0eff0;
   text-shadow: 2px 2px 2px black;
   background-color: #333242;
+}
+
+.create-input,
+.create-textarea {
+  margin: 0 auto;
+  width: 350px;
+  height: auto;
+  background-color: white;
+  line-height: 60px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#create-button {
+  margin-right: 10px;
+  margin-left: auto;
+  margin-bottom: 10px;
+  background-color: #6f6fc8;
+  border: 2px solid #6f6fc8;
+  color: white;
   border-radius: 20px;
+  min-width: 100px;
 }
 
 .note-form {
@@ -148,6 +175,7 @@ button {
 .notes-input {
   border-radius: 15px;
   padding-left: 30px;
+  padding-right: 30px;
   background-color: #333242;
 }
 
@@ -201,7 +229,86 @@ textarea {
   border-radius: 10px;
 }
 
-/* @media (min-width: 800px) {
-  * {
+@media (min-width: 800px) {
+  input,
+  select,
+  button,
+  textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: sans-serif;
+    font-size: 16px;
   }
-} */
+
+  input[type="email"],
+  input[type="text"],
+  input[type="password"],
+  input[type="search"] {
+    display: block;
+    width: 100%;
+  }
+
+  a,
+  button,
+  label,
+  input[type="submit"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+  }
+  button {
+    margin-right: 10px;
+    margin-left: auto;
+    margin-bottom: 10px;
+    background-color: #6f6fc8;
+    border: 2px solid #6f6fc8;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .note-section {
+    color: #f0eff0;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: #252636;
+  }
+  .notes-section,
+  h2,
+  h3 {
+    padding-top: 20px;
+    min-width: 900px;
+    background-color: #252636;
+    color: white;
+    border-radius: 20px;
+  }
+  .create-note {
+    font-size: 42px;
+    text-align: center;
+    color: #f0eff0;
+    text-shadow: 2px 2px 2px black;
+    background-color: #333242;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    text-decoration: underline;
+  }
+
+  .create-note h2 {
+  }
+
+  .create-input {
+    width: 750px;
+
+    background-color: white;
+    line-height: 60px;
+    border-radius: 10px;
+  }
+  .notes-header {
+    font-size: 50px;
+  }
+}
