@@ -147,7 +147,6 @@ button {
 .create-input,
 .create-textarea {
   margin: 0 auto;
-  width: 350px;
   height: auto;
   background-color: white;
   line-height: 60px;
@@ -193,10 +192,7 @@ textarea {
   border: 2px solid black;
   margin-bottom: 5px;
   margin-right: 5px;
-  display: flex;
-  align-content: center;
   color: black;
-  max-width: 300px;
 }
 
 /* Signup Form  */
