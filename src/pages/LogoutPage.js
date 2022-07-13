@@ -9,7 +9,7 @@ export default function LogoutPage() {
 
   return (
     <div className="logout-page">
-      <h1>You are now logged out</h1>;
+      <h1>You are now logged out</h1>
     </div>
   );
 }
