@@ -229,6 +229,12 @@ textarea {
   border-radius: 10px;
 }
 
+.logout-page {
+  text-align: center;
+  text-shadow: 2px 3px 2px pink;
+}
+
+/* RESPONSIVE SECTION  */
 @media (min-width: 800px) {
   input,
   select,

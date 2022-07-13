@@ -7,5 +7,9 @@ export default function LogoutPage() {
     store.logout();
   }, []);
 
-  return <h1>You are now logged out</h1>;
+  return (
+    <div className="logout-page">
+      <h1>You are now logged out</h1>;
+    </div>
+  );
 }
