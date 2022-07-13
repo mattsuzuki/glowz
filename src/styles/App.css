@@ -229,7 +229,7 @@ textarea {
   border-radius: 10px;
 }
 
-.logout-page {
+.logout-page h1 {
   text-align: center;
   text-shadow: 2px 3px 2px pink;
 }
