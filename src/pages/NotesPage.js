@@ -10,7 +10,7 @@ export default function NotesPage() {
   //Use Effect
   useEffect(() => {
     store.fetchNotes();
-  });
+  }, []);
 
   return (
     <div>
