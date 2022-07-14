@@ -64,20 +64,20 @@ li a {
   margin-top: -30px;
 }
 
-#landbutton {
+.button.homepage-button {
   margin-right: 10px;
   margin-left: auto;
   margin-bottom: 10px;
-  background-color: #6f6fc8;
-  border: 2px solid #6f6fc8;
+  /* background-color: #6f6fc8;
+  border: 2px solid #6f6fc8; */
   color: white;
   border-radius: 20px;
-  padding: 10px;
+  padding: 10px 50px;
 }
 
 .nav-bar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 20px;
   align-items: center;
 }
@@ -353,5 +353,9 @@ textarea {
     align-content: center;
     border-radius: 15px;
     display: inline-grid;
+  }
+
+  .nav-bar {
+    justify-content: flex-end;
   }
 }

@@ -13,7 +13,7 @@ export default function LoginForm() {
     await store.login();
 
     // Navigate
-    navigate("/");
+    navigate("/notes");
   };
 
   return (

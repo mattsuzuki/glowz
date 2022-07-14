@@ -12,9 +12,7 @@ export default function HomePage() {
         things you want to keep private
       </h4>
       <Link to="/notes">
-        <div className="landbutton">
-          <Button text="Enter GLOWZ" />
-        </div>
+        <Button className="homepage-button" text="Enter GLOWZ" />
       </Link>
     </div>
   );

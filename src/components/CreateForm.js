@@ -23,7 +23,7 @@ export default function CreateForm() {
           name="body"
         />
 
-        <button id="create-button" onClick={store.createNote}>
+        <button type="submit" id="create-button">
           Create note
         </button>
       </form>
