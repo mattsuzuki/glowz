@@ -5,6 +5,7 @@ import RequireAuth from "./RequireAuth";
 import SignupPage from "../pages/SignupPage";
 import LogoutPage from "../pages/LogoutPage";
 import "../styles/App.css";
+import HomePage from "../pages/HomePage";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
 
         <Routes>
           <Route
-            index
+            path="/notes"
             element={
               <RequireAuth>
                 <NotesPage />
@@ -35,6 +36,7 @@ function App() {
             }
           />
 
+          <Route index element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/logout" element={<LogoutPage />} />

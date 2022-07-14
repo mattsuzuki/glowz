@@ -1,6 +1,7 @@
 import React from "react";
 import authStore from "../stores/authStore";
 import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 export default function LoginForm() {
   const store = authStore();
@@ -8,9 +9,8 @@ export default function LoginForm() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("3");
+
     await store.login();
-    console.log("4");
 
     // Navigate
     navigate("/");
@@ -32,7 +32,7 @@ export default function LoginForm() {
         type="password"
         name="password"
       />
-      <button type="submit">Login</button>
+      <Button text="Login" />
     </form>
   );
 }
