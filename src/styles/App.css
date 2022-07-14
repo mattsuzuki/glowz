@@ -1,6 +1,7 @@
 * {
   font-family: "Indie Flower", cursive;
   font-family: "Poiret One", cursive;
+  box-sizing: border-box;
   background-color: #1e1d2a;
 }
 
@@ -35,13 +36,11 @@ input[type="radio"] {
   cursor: pointer;
 }
 .App li {
-  display: flex;
   list-style: none;
 }
 
 li a {
   text-decoration: none;
-  display: flex;
 }
 /* Landing Page  */
 
@@ -75,6 +74,7 @@ p {
 .login-page {
   text-align: center;
   padding-top: 40px;
+  margin-right: auto;
 }
 
 .login-page h1 {
@@ -146,7 +146,6 @@ button {
 
 .create-input,
 .create-textarea {
-  margin: 0 auto;
   height: auto;
   background-color: white;
   line-height: 60px;
@@ -230,8 +229,8 @@ textarea {
   text-align: center;
   text-shadow: 2px 3px 2px pink;
 }
-
 /* RESPONSIVE SECTION  */
+/* ------------------------------- NON-RESPONSIVE SECTION --------------------------------------- */
 @media (min-width: 800px) {
   input,
   select,
@@ -273,6 +272,12 @@ textarea {
     border-radius: 20px;
     padding: 10px;
   }
+
+  .login-page form {
+    width: 600px;
+    margin: 0 auto;
+  }
+
   .note-section {
     color: #f0eff0;
     padding-left: 30px;
@@ -296,14 +301,13 @@ textarea {
     color: #f0eff0;
     text-shadow: 2px 2px 2px black;
     background-color: #333242;
-    margin: 0 auto;
+
     padding-bottom: 30px;
     text-decoration: underline;
   }
 
   .create-input {
     width: 750px;
-
     background-color: white;
     line-height: 60px;
     border-radius: 10px;
