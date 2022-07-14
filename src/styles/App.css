@@ -46,6 +46,33 @@ li a {
 .landing {
   text-align: center;
   color: white;
+  font-size: 30px;
+}
+
+.landing h1 {
+  letter-spacing: 5px;
+  margin-bottom: -22px;
+  margin-top: -20px;
+  text-shadow: 2px 3px 2px #53e4de;
+}
+
+.logo {
+  size: 30%;
+}
+
+.landing h4 {
+  margin-top: -30px;
+}
+
+#landbutton {
+  margin-right: 10px;
+  margin-left: auto;
+  margin-bottom: 10px;
+  background-color: #6f6fc8;
+  border: 2px solid #6f6fc8;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .nav-bar {
