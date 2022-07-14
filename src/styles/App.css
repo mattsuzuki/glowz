@@ -60,18 +60,19 @@ li a {
 }
 
 .landing h4 {
-  margin-top: -30px;
+  margin-top: -10px;
+  border: 1px solid white;
 }
 
 .button.homepage-button {
   margin-left: auto;
   margin-bottom: 10px;
   margin-top: 40px;
-  /* background-color: #6f6fc8;
-  border: 2px solid #6f6fc8; */
+  background-color: #6f6fc8;
+  border: 2px solid #6f6fc8;
   color: white;
   border-radius: 20px;
-  padding: 10px 90px;
+  padding: 20px 90px;
 }
 
 .nav-bar {
@@ -89,6 +90,7 @@ p {
 .nav-bar a {
   color: #f0eff0;
   margin-right: 20px;
+  margin-left: auto;
   font-weight: bolder;
   text-shadow: 2px 2px 2px black;
 }
@@ -128,7 +130,11 @@ p {
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: 20px;
+  margin-right: 3%;
+  margin-left: 3%;
+
   border-radius: 20px;
+
   background-color: #252636;
 }
 
@@ -204,6 +210,10 @@ button {
   padding-left: 30px;
   padding-right: 30px;
   background-color: #333242;
+  border-radius: 20px;
+  border: 1px solid #fad02c9c;
+  margin-right: 3%;
+  margin-left: 3%;
 }
 
 .notes-input button {
@@ -254,6 +264,11 @@ textarea {
 }
 
 .logout-page h1 {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.logout-page h3 {
   text-align: center;
   margin-top: 60px;
 }
@@ -325,7 +340,7 @@ textarea {
   }
   .create-note {
     font-size: 42px;
-    text-align: center;
+    justify-content: center;
     color: #f0eff0;
     text-shadow: 2px 2px 2px black;
     background-color: #333242;
@@ -333,9 +348,11 @@ textarea {
     padding-bottom: 30px;
     text-decoration: underline;
   }
+  .notes-input h2 {
+    text-align: center;
+  }
 
   .create-input {
-    width: 750px;
     background-color: white;
     line-height: 60px;
     border-radius: 10px;
@@ -356,5 +373,13 @@ textarea {
 
   .nav-bar {
     justify-content: flex-end;
+  }
+  .button.homepage-button {
+    margin-left: auto;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    color: white;
+    border-radius: 20px;
+    padding: 20px 120px;
   }
 }
