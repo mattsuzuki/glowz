@@ -9,7 +9,7 @@ export default function HomePage() {
       <img className="logo" src="/assets/images/glowz.svg" />
       <h4>
         A platform to privately share your daily achievements, struggles, or any
-        things you want to keep private
+        things you want to keep private and secure.
       </h4>
       <Link to="/notes">
         <Button className="homepage-button" text="Enter GLOWZ" />

@@ -52,7 +52,7 @@ li a {
 .landing h1 {
   margin-bottom: -22px;
   margin-top: -20px;
-  text-shadow: 2px 3px 2px #53e4de;
+  /* text-shadow: 2px 3px 2px #53e4de; */
 }
 
 .logo {
@@ -61,7 +61,9 @@ li a {
 
 .landing h4 {
   margin-top: -10px;
-  border: 1px solid white;
+  background-color: #252636;
+  border-radius: 15px;
+  padding: 10px 5px;
 }
 
 .button.homepage-button {
