@@ -7,7 +7,8 @@ export default function CreateForm() {
   return (
     <div className="notes-input">
       <h2 className="create-note"> Create Note</h2>
-      <form className="note-form" onSubmit={store.createNote}>
+      {/* Change onsubmit on button */}
+      <form className="note-form">
         <input
           className="create-input"
           placeholder="Enter the title of your note"
@@ -23,7 +24,7 @@ export default function CreateForm() {
           name="body"
         />
 
-        <button type="submit" id="create-button">
+        <button type="submit" id="create-button" onSubmit={store.createNote}>
           Create note
         </button>
       </form>
