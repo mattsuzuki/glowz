@@ -8,7 +8,7 @@ export default function CreateForm() {
     <div className="notes-input">
       <h2 className="create-note"> Create Note</h2>
       {/* Change onsubmit on button */}
-      <form className="note-form" onSubmit={(e)=> store.createNote(e)}>
+      <form className="note-form">
         <input
           className="create-input"
           placeholder="Enter the title of your note"
@@ -24,7 +24,11 @@ export default function CreateForm() {
           name="body"
         />
 
-        <button type="submit" id="create-button">
+        <button
+          type="submit"
+          id="create-button"
+          onClick={(e) => store.createNote(e)}
+        >
           Create note
         </button>
       </form>
